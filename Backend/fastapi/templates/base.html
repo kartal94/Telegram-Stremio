@@ -42,8 +42,8 @@
                     <h1 class="text-2xl font-bold text-primary">Telegram Stremio</h1>
                     {% if current_user %}
                     <div class="hidden md:flex space-x-4">
-                        <a href="/" class="text-text hover:text-primary px-3 py-2 rounded-md transition-colors">Dashboard</a>
-                        <a href="/media/manage" class="text-text hover:text-primary px-3 py-2 rounded-md transition-colors">Media</a>
+                        <a href="/deneme/" class="text-text hover:text-primary px-3 py-2 rounded-md transition-colors">Dashboard</a>
+                        <a href="/deneme/media/manage" class="text-text hover:text-primary px-3 py-2 rounded-md transition-colors">Media</a>
                     </div>
                     {% endif %}
                 </div>
@@ -65,10 +65,10 @@
                     {% if current_user %}
                     <div class="flex items-center space-x-4">
                         <span class="text-sm theme-text-secondary">{{ current_user }}</span>
-                        <a href="/logout" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors">Logout</a>
+                        <a href="/deneme/logout" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors">Logout</a>
                     </div>
                     {% else %}
-                    <a href="/login" class="theme-primary text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity">Login</a>
+                    <a href="/deneme/login" class="theme-primary text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity">Login</a>
                     {% endif %}
                 </div>
             </div>
@@ -86,8 +86,8 @@
             <div class="flex justify-between items-center">
                 <p class="theme-text-secondary text-sm">© 2025 Telegram Stremio. All rights reserved.</p>
                 <div class="flex space-x-4">
-                    <a href="/status" class="theme-text-secondary hover:text-primary text-sm transition-colors">Status</a>
-                    <a href="/stremio" class="theme-text-secondary hover:text-primary text-sm transition-colors">Stremio Guide</a>
+                    <a href="/deneme/status" class="theme-text-secondary hover:text-primary text-sm transition-colors">Status</a>
+                    <a href="/deneme/stremio" class="theme-text-secondary hover:text-primary text-sm transition-colors">Stremio Guide</a>
                 </div>
             </div>
         </div>
