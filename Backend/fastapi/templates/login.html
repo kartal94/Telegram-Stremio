@@ -6,8 +6,8 @@
 <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full space-y-8">
         <div class="text-center">
-            <h2 class="text-3xl font-bold">Admin Login</h2>
-            <p class="mt-2 theme-text-secondary">Sign in to access the admin panel</p>
+            <h2 class="text-3xl font-bold">Yönetici Girişi</h2>
+            <p class="mt-2 theme-text-secondary">Yönetici paneline erişmek için oturum açın</p>
         </div>
         
         {% if error %}
@@ -18,28 +18,28 @@
         
         <form method="post" class="theme-card p-8 rounded-lg shadow-lg space-y-6">
             <div>
-                <label for="username" class="block text-sm font-medium mb-2">Username</label>
+                <label for="username" class="block text-sm font-medium mb-2">Kullancı adı</label>
                 <input type="text" id="username" name="username" required 
                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
             </div>
             
             <div>
-                <label for="password" class="block text-sm font-medium mb-2">Password</label>
+                <label for="password" class="block text-sm font-medium mb-2">Şifre</label>
                 <input type="password" id="password" name="password" required 
                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
             </div>
             
             <button type="submit" 
                     class="w-full theme-primary text-white py-2 px-4 rounded-md hover:opacity-90 transition-opacity font-medium">
-                Sign In
+                Giriş
             </button>
         </form>
         
         <div class="text-center">
             <p class="theme-text-secondary text-sm">
-                Public pages: 
-                <a href="/status" class="text-primary hover:underline">System Status</a> | 
-                <a href="/stremio" class="text-primary hover:underline">Stremio Guide</a>
+                Herkese açık sayfalar: 
+                <a href="/deneme/status" class="text-primary hover:underline">Sistem Durumu</a> | 
+                <a href="deneme/stremio" class="text-primary hover:underline">Stremio Kılavuzu</a>
             </p>
         </div>
     </div>
