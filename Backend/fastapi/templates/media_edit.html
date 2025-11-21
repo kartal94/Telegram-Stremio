@@ -11,10 +11,10 @@
                 <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
-                Back to {{ media_type|title }}s
+                Geri dön {{ media_type|title }}s
             </a>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-bold mt-2">Edit {{ media_type|title }}</h1>
+        <h1 class="text-2xl sm:text-3xl font-bold mt-2">Düzenle {{ media_type|title }}</h1>
         <p class="theme-text-secondary text-sm sm:text-base mt-1 sm:mt-2">TMDB ID: {{ tmdb_id }} | DB Index: {{ db_index }}</p>
     </div>
     
@@ -122,7 +122,7 @@
         <!-- Description (common for both layouts) -->
         {% if media_details.description %}
         <div class="px-4 sm:px-6 pb-4 sm:pb-6">
-            <h3 class="text-base sm:text-lg font-semibold mb-2">Overview</h3>
+            <h3 class="text-base sm:text-lg font-semibold mb-2">Genel Bakış</h3>
             <p class="theme-text-secondary leading-relaxed text-sm sm:text-base">{{ media_details.description }}</p>
         </div>
         {% endif %}
@@ -131,23 +131,23 @@
     
     <!-- Edit Form -->
     <div class="theme-card p-4 sm:p-6 rounded-lg shadow mb-6 sm:mb-8">
-        <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Edit Details</h3>
+        <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Ayrıntıları Düzenle</h3>
         <form onsubmit="updateMedia(event)" id="edit-form">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
                 <div class="sm:col-span-2">
-                    <label class="block text-sm font-medium mb-2">Title *</label>
+                    <label class="block text-sm font-medium mb-2">Başlık *</label>
                     <input type="text" id="title" name="title" 
                            value="{{ media_details.title if media_details else '' }}"
                            class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-2">Release Year *</label>
+                    <label class="block text-sm font-medium mb-2">Yayın Yılı *</label>
                     <input type="number" id="release_year" name="release_year" 
                            value="{{ media_details.release_year if media_details else '' }}"
                            class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-2">Rating (0-10)</label>
+                    <label class="block text-sm font-medium mb-2">Puan (0-10)</label>
                     <input type="number" step="0.1" min="0" max="10" id="rating" name="rating" 
                            value="{{ media_details.rating if media_details else '' }}"
                            class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
@@ -166,7 +166,7 @@
                            class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
                 </div>
                 <div class="sm:col-span-2">
-                    <label class="block text-sm font-medium mb-2">Backdrop URL</label>
+                    <label class="block text-sm font-medium mb-2">Arka plan URLsi</label>
                     <input type="url" id="backdrop" name="backdrop" 
                            value="{{ media_details.backdrop if media_details else '' }}"
                            class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
@@ -174,13 +174,13 @@
             </div>
             
             <div class="mb-6">
-                <label class="block text-sm font-medium mb-2">Description</label>
+                <label class="block text-sm font-medium mb-2">Konusu</label>
                 <textarea id="description" name="description" rows="3" 
                           class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">{{ media_details.description if media_details else '' }}</textarea>
             </div>
             
             <div class="mb-6">
-                <label class="block text-sm font-medium mb-2">Genres (comma-separated)</label>
+                <label class="block text-sm font-medium mb-2">Türler (virgülle ayrılmış)</label>
                 <input type="text" id="genres" name="genres" 
                        value="{% if media_details and media_details.genres %}{{ media_details.genres|join(', ') }}{% endif %}"
                        class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
@@ -190,11 +190,11 @@
             <div class="flex flex-col sm:flex-row justify-end gap-2 sm:gap-4">
                 <button type="button" onclick="window.history.back()" 
                         class="w-full sm:w-auto px-6 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm">
-                    Cancel
+                    İptal et
                 </button>
                 <button type="submit" 
                         class="w-full sm:w-auto theme-primary text-white px-6 py-2 rounded-md hover:opacity-90 transition-opacity text-sm">
-                    Save Changes
+                    Kaydet
                 </button>
             </div>
         </form>
@@ -203,7 +203,7 @@
     <!-- Quality Management -->
     {% if media_details %}
     <div class="theme-card p-4 sm:p-6 rounded-lg shadow">
-        <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Available Content</h3>
+        <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Mevcut İçerik</h3>
         
         {% if media_type == 'movie' and media_details.telegram %}
         <!-- Movie Qualities (sorted by quality) -->
@@ -222,7 +222,7 @@
                 </div>
                 <button onclick="deleteQuality('{{ quality.quality }}')" 
                         class="self-start sm:self-center text-red-600 hover:text-red-800 hover:bg-red-50 px-3 py-1 rounded transition-colors text-sm">
-                    Delete
+                    Sil
                 </button>
             </div>
             {% endfor %}
@@ -236,7 +236,7 @@
                 <!-- Season Header -->
                 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
                     <div class="flex items-center justify-between">
-                        <h4 class="text-base sm:text-lg font-semibold text-gray-900">Season {{ season.season_number }}</h4>
+                        <h4 class="text-base sm:text-lg font-semibold text-gray-900">Sezon {{ season.season_number }}</h4>
                         <div class="flex items-center gap-2 sm:gap-4">
                             <span class="text-xs sm:text-sm text-gray-600">{{ season.episodes|length }} episode{{ 's' if season.episodes|length != 1 else '' }}</span>
                             <button onclick="toggleSeason({{ loop.index0 }})" 
@@ -279,13 +279,13 @@
                                             </div>
                                             <button onclick="deleteTVQuality({{ season.season_number }}, {{ episode.episode_number }}, '{{ quality.quality }}')" 
                                                     class="self-start sm:self-center text-red-600 hover:text-red-800 hover:bg-red-50 px-2 py-1 rounded transition-colors text-xs">
-                                                Delete
+                                                Sil
                                             </button>
                                         </div>
                                         {% endfor %}
                                     </div>
                                     {% else %}
-                                    <p class="text-xs text-gray-400 text-center sm:text-left">No qualities available</p>
+                                    <p class="text-xs text-gray-400 text-center sm:text-left">Hiçbir nitelik mevcut değil</p>
                                     {% endif %}
                                 </div>
                                 
@@ -293,7 +293,7 @@
                                 <div class="flex-shrink-0 flex justify-center sm:justify-start">
                                     <button onclick="deleteTVEpisode({{ season.season_number }}, {{ episode.episode_number }})" 
                                             class="text-red-600 hover:text-red-800 hover:bg-red-50 px-2 py-1 rounded text-xs transition-colors">
-                                        Delete Episode
+                                        Bölümü Sil
                                     </button>
                                 </div>
                             </div>
@@ -305,7 +305,7 @@
                     <div class="px-3 sm:px-4 py-3 bg-gray-50 border-t border-gray-200 text-center sm:text-left">
                         <button onclick="deleteTVSeason({{ season.season_number }})" 
                                 class="text-red-600 hover:text-red-800 hover:bg-red-100 px-3 py-1 rounded text-sm transition-colors">
-                            Delete Entire Season
+                            Tüm Sezonu Sil
                         </button>
                     </div>
                 </div>
@@ -317,7 +317,7 @@
             <svg class="mx-auto h-12 w-12 text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2h4a1 1 0 110 2h-1v12a2 2 0 01-2-2V6H3a1 1 0 110-2h4zM9 6v10h6V6H9z"/>
             </svg>
-            <p class="theme-text-secondary text-sm sm:text-base">No content available</p>
+            <p class="theme-text-secondary text-sm sm:text-base">İçerik mevcut değil</p>
         </div>
         {% endif %}
     </div>
