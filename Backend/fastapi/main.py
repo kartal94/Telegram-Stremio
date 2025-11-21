@@ -53,19 +53,19 @@ async def login_get(request: Request):
 async def login_post_route(request: Request, username: str = Form(...), password: str = Form(...)):
     return await login_post(request, username, password)
 
-@app.get("/deneme/logout")
+@app.get("/logout")
 async def logout_route(request: Request):
     return await logout(request)
 
-@app.post("/deneme/set-theme")
+@app.post("/set-theme")
 async def set_theme_route(request: Request, theme: str = Form(...)):
     return await set_theme(request, theme)
 
-@app.get("/deneme/status", response_class=HTMLResponse)
+@app.get("/status", response_class=HTMLResponse)
 async def public_status(request: Request):
     return await public_status_page(request)
 
-@app.get("/deneme/stremio", response_class=HTMLResponse)
+@app.get("/stremio", response_class=HTMLResponse)
 async def stremio_guide(request: Request):
     return await stremio_guide_page(request)
 
