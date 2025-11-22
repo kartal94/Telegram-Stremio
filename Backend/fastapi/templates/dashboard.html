@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Gösterge Paneli{% endblock %}
+{% block title %}Kontrol Paneli{% endblock %}
 
 {% block content %}
 <div class="min-h-screen">
@@ -52,21 +52,21 @@
 
                 <!-- Bot Workload Accordion (Collapsed by default) -->
                 <div class="theme-card rounded-xl p-8 shadow-xl">
-                    <div class="flex items-center justify-between cursor-pointer" onclick="toggleAccordion('workload-content')">
+                    <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <div class="w-12 h-12 theme-primary rounded-lg flex items-center justify-center mr-4 bg-opacity-20 text-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="white">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-semibold">Bot İş Yükleri</h3>
+                            <h3 class="text-2xl font-semibold">Bot kullanıcı sayısı</h3>
                         </div>
                         <svg id="workload-content-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary transition-transform duration-200 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="white">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
                     
-                    <div id="workload-content" class="hidden mt-6 space-y-3">
+                    <div id="workload-content" class="mt-6 space-y-3">
                         {% if system_stats.loads and system_stats.loads|length > 0 %}
                             {% for bot_name, load in system_stats.loads.items() %}
                             <div class="flex justify-between items-center py-3 px-4 bg-gray-50 rounded-lg">
@@ -90,7 +90,7 @@
 
         <!-- Database Statistics Section -->
         <div class="mb-12">
-            <h2 class="text-2xl font-bold mb-6">Veritabanına Genel Bakış</h2>
+            <h2 class="text-2xl font-bold mb-6">Veritabanı Bilgileri</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {% if system_stats.databases %}
                     {% for db_stat in system_stats.databases %}
@@ -232,7 +232,7 @@
                         onclick="copyToClipboard()"
                         class="theme-primary text-white px-6 py-3 rounded-r-lg font-semibold hover:opacity-90 transition-colors duration-200"
                     >
-                        Copy
+                        Kopyala
                     </button>
                 </div>
             </div>
