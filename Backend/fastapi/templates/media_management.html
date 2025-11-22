@@ -337,7 +337,7 @@ function updateMediaInfo(data) {
     resultsInfo.textContent = `Showing ${startItem}-${endItem} of ${data.total_count} ${mediaType}s`;
     
     if (data.databases_checked && data.databases_checked.length > 0) {
-        dbInfo.textContent = `Database${data.databases_checked.length > 1 ? 's' : ''}: ${data.databases_checked.join(', ')}`;
+        dbInfo.textContent = `Veritabanı${data.databases_checked.length > 1 ? 's' : ''}: ${data.databases_checked.join(', ')}`;
     }
     
     mediaInfo.classList.remove('hidden');
