@@ -379,7 +379,7 @@ async function deleteMedia(tmdbId, dbIndex, title) {
             // Show success message briefly
             const successMsg = document.createElement('div');
             successMsg.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-lg z-50';
-            successMsg.textContent = `"${title}" deleted successfully`;
+            successMsg.textContent = `"${title}" başarıyla silindi.`;
             document.body.appendChild(successMsg);
             
             setTimeout(() => {
