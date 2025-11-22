@@ -11,11 +11,10 @@ async def send_start_message(client: Client, message: Message):
 
         await message.reply_text(
             '<b>Telegram stremio botuna hoş geldin.</b>\n\n'
-            'Stremio eklentisini yüklemek için aşağıdaki URLyi kopyalayın ve Stremio eklentilerine ekleyin:\n\n'
+            'Stremio eklentisini yüklemek için aşağıdaki adresi kopyalayın ve Stremio eklentilerine ekleyin:\n\n'
             f'<b>Eklenti adresin:</b>\n<code>{addon_url}</code>\n\n'
     '<b>Eklenti adresini başkalarına paylaşma!</b>\n'
-            'Paylaşırsan video izlerken donmalar yaşayabilirsin. \n'
-            'Sonra ‘Kartal abi video donuyor’ dersin. 😃',
+            'Paylaşırsan video izlerken donmalar yaşayabilirsin.',
             quote=True,
             parse_mode=enums.ParseMode.HTML
         )
