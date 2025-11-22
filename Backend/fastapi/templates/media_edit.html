@@ -385,7 +385,7 @@ async function updateMedia(event) {
 
 // Delete quality from movie
 async function deleteQuality(quality) {
-    if (!confirm(`Are you sure you want to delete the ${quality} quality?`)) return;
+    if (!confirm(`${quality} kalitesini silmek istediğinizden emin misiniz?`)) return;
     
     try {
         const response = await fetch(`/deneme/api/media/delete-quality?tmdb_id=${tmdbId}&db_index=${dbIndex}&quality=${encodeURIComponent(quality)}`, {
