@@ -407,7 +407,7 @@ async function deleteQuality(quality) {
 
 // Delete TV quality
 async function deleteTVQuality(season, episode, quality) {
-    if (!confirm(`Are you sure you want to delete the ${quality} quality from Season ${season} Episode ${episode}?`)) return;
+    if (!confirm(`${season}.sezon ${episode}.bölüm ${quality} çözünürlüğü silmek istediğinizden emin misiniz?`)) return;
     
     try {
         const response = await fetch(`/deneme/api/media/delete-tv-quality?tmdb_id=${tmdbId}&db_index=${dbIndex}&season=${season}&episode=${episode}&quality=${encodeURIComponent(quality)}`, {
@@ -415,7 +415,7 @@ async function deleteTVQuality(season, episode, quality) {
         });
         
         if (response.ok) {
-            showSuccessMessage(`${quality} quality deleted successfully`);
+            showSuccessMessage(`${quality} çözünürlük başarıyla silindi.`);
             setTimeout(() => location.reload(), 1000);
         } else {
             const error = await response.json();
@@ -429,7 +429,7 @@ async function deleteTVQuality(season, episode, quality) {
 
 // Delete TV episode
 async function deleteTVEpisode(season, episode) {
-    if (!confirm(`Are you sure you want to delete Season ${season} Episode ${episode}?\n\nThis will remove the entire episode and all its qualities.`)) return;
+    if (!confirm(`${season}. sezon ${episode}. bölümü silmek istediğinizden emin misiniz?\n\nBu, bölümün tamamını silecektir.`)) return;
     
     try {
         const response = await fetch(`/deneme/api/media/delete-tv-episode?tmdb_id=${tmdbId}&db_index=${dbIndex}&season=${season}&episode=${episode}`, {
@@ -451,7 +451,7 @@ async function deleteTVEpisode(season, episode) {
 
 // Delete TV season
 async function deleteTVSeason(season) {
-    if (!confirm(`Are you sure you want to delete the entire Season ${season}?\n\nThis will remove all episodes and qualities in this season. This action cannot be undone.`)) return;
+    if (!confirm(`${season} sezonu silmek istediğinizden emin misiniz?\n\nBu işlem, bu sezondaki tüm bölümleri silecektir. Bu işlem geri alınamaz.`)) return;
     
     try {
         const response = await fetch(`/deneme/api/media/delete-tv-season?tmdb_id=${tmdbId}&db_index=${dbIndex}&season=${season}`, {
@@ -459,7 +459,7 @@ async function deleteTVSeason(season) {
         });
         
         if (response.ok) {
-            showSuccessMessage(`Season ${season} deleted successfully`);
+            showSuccessMessage(`${season} sezon başarıyla silindi.`);
             setTimeout(() => location.reload(), 1000);
         } else {
             const error = await response.json();
@@ -467,7 +467,7 @@ async function deleteTVSeason(season) {
         }
     } catch (error) {
         console.error('Error deleting season:', error);
-        showErrorMessage('Error deleting season. Please try again.');
+        showErrorMessage('Sezon silinirken hata oluştu. Lütfen tekrar deneyin.');
     }
 }
 
